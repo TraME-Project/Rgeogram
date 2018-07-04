@@ -7,5 +7,5 @@ Author: Keith O'Hara [aut, cre]
 Maintainer: Keith O'Hara <keith.ohara@nyu.edu>
 Description: R interface to the Geogram library.
 License: GPL (>=2)
-Depends: R (>= 3.4.0), Rcpp (>= 0.12.2)
+Depends: R (>= 3.5.0), Rcpp (>= 0.12.2)
 LinkingTo: Rcpp, RcppArmadillo (>= 0.6.400.2)
