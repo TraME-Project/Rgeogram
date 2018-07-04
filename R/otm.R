@@ -1,9 +1,6 @@
 ################################################################################
 ##
-##   Copyright (C) 2017-2018 Odran Bonnet, 
-##                           Alfred Galichon, 
-##                           Keith O'Hara, and
-##                           Matt Shum
+##   Copyright (C) 2018 Keith O'Hara
 ##
 ##   This file is part of the Rgeogram package.
 ##
