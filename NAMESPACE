@@ -1,0 +1,5 @@
+useDynLib(Rgeogram)
+
+importFrom(Rcpp, evalCpp)
+
+export(otm2D,otm3D)

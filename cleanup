@@ -1,0 +1,4 @@
+#! /bin/sh
+## Rgeogram src cleanup script
+
+rm -f ./src/*so ./src/R_src/*.o ./src/core_library/src/lib/*/*/*.o ./src/core_library/src/lib/*/*/*/*.o
