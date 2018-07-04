@@ -21,6 +21,7 @@ License: \tab GPL (>= 2)\cr
 LazyLoad: \tab Yes\cr
 Depends: \tab Rcpp, RcppArmadillo \cr }
 }
+
 \section{How to cite this package}{
  \preformatted{@Manual{OHara2018,
  author       = {Keith O'Hara},
