@@ -7,7 +7,11 @@ http://alice.loria.fr/software/geogram/doc/html/index.html
 
 ## License
 
-The wrapper code is released under the GPL version 2.0. 
+The Rgeogram wrapper code is licensed under the GPL version 2.0. 
+
+Geogram is licensed under 3-Clause BSD License:
+
+http://alice.loria.fr/software/geogram/doc/html/geogram_license.html
 
 Graphite is licensed under the GPL:
 
