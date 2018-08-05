@@ -78,13 +78,13 @@ set_mesh_point(Mesh &M, index_t v, const double *coords, index_t dim)
 
 }
 
-using namespace GEO;
+// using namespace GEO;
 
 //
 // 2D
 
 int
-OTM2D(const double* points_inp, const int n_vert, const int vert_dim, double* weights_ptr)
+OTM2D(const double* points_inp, const int n_vert, const int vert_dim, const double* weights_in, double* weights_out_ptr)
 {
     
     // Initialize the Geogram library.
@@ -136,12 +136,12 @@ OTM2D(const double* points_inp, const int n_vert, const int vert_dim, double* we
 
     // create facets
 
-    vector<index_t> facet_vertices;
+    std::vector<GEO::index_t> facet_vertices;
     facet_vertices.resize(0);
     facet_vertices.push_back(2); facet_vertices.push_back(1); facet_vertices.push_back(0);
 
-    index_t f = M_unif.facets.create_polygon(facet_vertices.size());
-    for (index_t lv = 0; lv < facet_vertices.size(); ++lv)
+    GEO::index_t f = M_unif.facets.create_polygon(facet_vertices.size());
+    for (GEO::index_t lv = 0; lv < facet_vertices.size(); ++lv)
     {
         M_unif.facets.set_vertex(f, lv, facet_vertices[lv]);
     }
@@ -150,7 +150,7 @@ OTM2D(const double* points_inp, const int n_vert, const int vert_dim, double* we
     facet_vertices.push_back(2); facet_vertices.push_back(0); facet_vertices.push_back(3);
 
     f = M_unif.facets.create_polygon(facet_vertices.size());
-    for (index_t lv = 0; lv < facet_vertices.size(); ++lv)
+    for (GEO::index_t lv = 0; lv < facet_vertices.size(); ++lv)
     {
         M_unif.facets.set_vertex(f, lv, facet_vertices[lv]);
     }
@@ -166,7 +166,8 @@ OTM2D(const double* points_inp, const int n_vert, const int vert_dim, double* we
 
     for (int i=0; i < M_points.vertices.nb(); i++)
     {
-        OTM.set_nu(i, 1.0/double(M_points.vertices.nb()));
+        // OTM.set_nu(i, 1.0/double(M_points.vertices.nb()));
+        OTM.set_nu(i, weights_in[i]);
     }
 
     OTM.set_verbose(false);
@@ -188,7 +189,7 @@ OTM2D(const double* points_inp, const int n_vert, const int vert_dim, double* we
     double weight0 = OTM.weight(0);
     for (int jj=0; jj < OTM.nb_points(); jj++)
     {
-        weights_ptr[jj] = OTM.weight(jj) - weight0;
+        weights_out_ptr[jj] = OTM.weight(jj) - weight0;
     }
 
     return 0;
@@ -198,7 +199,7 @@ OTM2D(const double* points_inp, const int n_vert, const int vert_dim, double* we
 // 3D
 
 int
-OTM3D(const double* points_inp, const int n_vert, const int vert_dim, double* weights_ptr)
+OTM3D(const double* points_inp, const int n_vert, const int vert_dim, const double* weights_in, double* weights_out_ptr)
 {
     
     // Initialize the Geogram library.
@@ -325,7 +326,7 @@ OTM3D(const double* points_inp, const int n_vert, const int vert_dim, double* we
 
     for (int i=0; i < M_points.vertices.nb(); i++)
     {
-        OTM.set_nu(i, 1.0/double(M_points.vertices.nb()));
+        OTM.set_nu(i, weights_in[i]);
     }
 
     OTM.set_verbose(false);
@@ -347,7 +348,7 @@ OTM3D(const double* points_inp, const int n_vert, const int vert_dim, double* we
     double weight0 = OTM.weight(0);
     for (int jj=0; jj < OTM.nb_points(); jj++)
     {
-        weights_ptr[jj] = OTM.weight(jj) - weight0;
+        weights_out_ptr[jj] = OTM.weight(jj) - weight0;
     }
 
     return 0;

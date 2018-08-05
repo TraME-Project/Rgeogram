@@ -32,7 +32,10 @@ namespace Rgeogram
     #include "tictoc.hpp"
 }
 
-RcppExport SEXP OTM2D_R(SEXP eps_mat_R);
-RcppExport SEXP OTM3D_R(SEXP eps_mat_R);
+int OTM2D(const double* points_inp, const int n_vert, const int vert_dim, const double* weights_in_ptr, double* weights_out_ptr);
+int OTM3D(const double* points_inp, const int n_vert, const int vert_dim, const double* weights_in_ptr, double* weights_out_ptr);
+
+RcppExport SEXP OTM2D_R(SEXP chi_mat_R, SEXP weights_in_R);
+RcppExport SEXP OTM3D_R(SEXP chi_mat_R, SEXP weights_in_R);
 
 #endif

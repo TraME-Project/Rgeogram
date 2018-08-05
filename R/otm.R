@@ -19,16 +19,38 @@
 ##
 ################################################################################
 
-otm2D <- function(eps_mat)
+otm2D <- function(chi_mat, weights_in = NULL)
 {
-    res <- .Call("OTM2D_R", eps_mat, PACKAGE = "Rgeogram")
+    if (is.null(weights_in))
+    {
+        weights_in <- rep(1.0/nrow(chi_mat),nrow(chi_mat))
+    }
+
+    if (sum(weights_in) != 1)
+    {
+        weights_in <- weights_in / sum(weights_in)
+    }
+
+    res <- .Call("OTM2D_R", chi_mat, weights_in, PACKAGE = "Rgeogram")
 
     return(res)
 }
 
-otm3D <- function(eps_mat)
+otm3D <- function(chi_mat, weights_in = NULL)
 {
-    res <- .Call("OTM3D_R", eps_mat, PACKAGE = "Rgeogram")
+    if (is.null(weights_in))
+    {
+        weights_in <- rep(1.0/nrow(chi_mat),nrow(chi_mat))
+    }
+
+    if (sum(weights_in) != 1)
+    {
+        weights_in <- weights_in / sum(weights_in)
+    }
+
+    #
+
+    res <- .Call("OTM3D_R", chi_mat, weights_in, PACKAGE = "Rgeogram")
 
     return(res)
 }

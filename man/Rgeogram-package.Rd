@@ -15,8 +15,8 @@ The Rgeogram package is an R interface to the Optimal Transport methods in Geogr
 \tabular{ll}{
 Package: \tab Rgeogram\cr
 Type: \tab Package\cr
-Version: \tab 0.1.0\cr
-Date: \tab 2018-07-03\cr
+Version: \tab 0.2.0\cr
+Date: \tab 2018-08-05\cr
 License: \tab GPL (>= 2)\cr
 LazyLoad: \tab Yes\cr
 Depends: \tab Rcpp, RcppArmadillo \cr }
@@ -27,7 +27,7 @@ Depends: \tab Rcpp, RcppArmadillo \cr }
  author       = {Keith O'Hara},
  title        = {{Rgeogram}: R interface to Geogram.},
  year         = {2018},
- note         = {R package version 0.1.0.}}}
+ note         = {R package version 0.2.0.}}}
 \emph{}
 }
 

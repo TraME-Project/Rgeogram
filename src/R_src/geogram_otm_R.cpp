@@ -1,9 +1,6 @@
 /*################################################################################
   ##
-  ##   Copyright (C) 2017-2018 Odran Bonnet, 
-  ##                           Alfred Galichon, 
-  ##                           Keith O'Hara, and
-  ##                           Matt Shum
+  ##   Copyright (C) 2018 Keith O'Hara
   ##
   ##   This file is part of the Rgeogram package.
   ##
@@ -25,14 +22,11 @@
 #include "Rgeogram.hpp"
 using namespace Rcpp;
 
-int OTM2D(const double* points_inp, const int n_vert, const int vert_dim, double* weights_ptr);
-int OTM3D(const double* points_inp, const int n_vert, const int vert_dim, double* weights_ptr);
-
-SEXP OTM2D_R(SEXP eps_mat_R)
+SEXP OTM2D_R(SEXP chi_mat_R, SEXP weights_in_R)
 {
     try {
-        int nrow = Rf_nrows(eps_mat_R);
-        int ncol = Rf_ncols(eps_mat_R);
+        int nrow = Rf_nrows(chi_mat_R);
+        int ncol = Rf_ncols(chi_mat_R);
 
         if (ncol > nrow)
         {
@@ -45,7 +39,7 @@ SEXP OTM2D_R(SEXP eps_mat_R)
         arma::vec weights_out = arma::zeros(nrow,1);
 
         Rgeogram::clocktime_t start_time = Rgeogram::tic();
-        OTM2D(REAL(eps_mat_R), nrow, ncol, weights_out.memptr());
+        OTM2D(REAL(chi_mat_R), nrow, ncol, REAL(weights_in_R), weights_out.memptr());
         Rgeogram::comptime_t algo_runtime = Rgeogram::tic() - start_time;
 
         double runtime_out = algo_runtime.count();
@@ -62,11 +56,11 @@ SEXP OTM2D_R(SEXP eps_mat_R)
     return R_NilValue;
 }
 
-SEXP OTM3D_R(SEXP eps_mat_R)
+SEXP OTM3D_R(SEXP chi_mat_R, SEXP weights_in_R)
 {
     try {
-        int nrow = Rf_nrows(eps_mat_R);
-        int ncol = Rf_ncols(eps_mat_R);
+        int nrow = Rf_nrows(chi_mat_R);
+        int ncol = Rf_ncols(chi_mat_R);
 
         if (ncol > nrow)
         {
@@ -79,7 +73,7 @@ SEXP OTM3D_R(SEXP eps_mat_R)
         arma::vec weights_out = arma::zeros(nrow,1);
 
         Rgeogram::clocktime_t start_time = Rgeogram::tic();
-        OTM3D(REAL(eps_mat_R), nrow, ncol, weights_out.memptr());
+        OTM3D(REAL(chi_mat_R), nrow, ncol, REAL(weights_in_R), weights_out.memptr());
         Rgeogram::comptime_t algo_runtime = Rgeogram::tic() - start_time;
 
         double runtime_out = algo_runtime.count();
