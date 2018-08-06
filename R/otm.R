@@ -21,6 +21,11 @@
 
 otm2D <- function(chi_mat, weights_in = NULL)
 {
+    if (any(abs(chi_mat) > 1))
+    {
+        stop("input values outside the unit hypercube")
+    }
+
     if (is.null(weights_in))
     {
         weights_in <- rep(1.0/nrow(chi_mat),nrow(chi_mat))
@@ -38,6 +43,11 @@ otm2D <- function(chi_mat, weights_in = NULL)
 
 otm3D <- function(chi_mat, weights_in = NULL)
 {
+    if (any(abs(chi_mat) > 1))
+    {
+        stop("input values outside the unit hypercube")
+    }
+
     if (is.null(weights_in))
     {
         weights_in <- rep(1.0/nrow(chi_mat),nrow(chi_mat))
