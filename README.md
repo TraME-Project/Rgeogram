@@ -26,15 +26,15 @@ library(Rgeogram)
 chi1 <- c(0.2, 0.7, .4, .5)
 chi2 <- c(0.1, 0.3, .9, .4)
 
-chi_kj = cbind(chi1,chi2)/2
+chi_kj <- cbind(chi1,chi2)/2
 
 res <- otm2D(chi_kj)
 otm2D(chi_kj,cbind(rep(0.25,4)))
 
 vtilde <- res$weights
 
-v = - vtilde + (chi_kj[,1]^2 + chi_kj[,2]^2)
-delta_j = v[4] - v[1:3]
+v <- - vtilde + (chi_kj[,1]^2 + chi_kj[,2]^2)
+delta_j <- v[4] - v[1:3]
 ```
 
 ## License
