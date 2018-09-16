@@ -5,29 +5,29 @@
 
 \docType{package}
 
-\title{R interface to Geogram}
+\title{An R interface to the Geogram library}
 
 \description{
-The Rgeogram package is an R interface to the Optimal Transport methods in Geogram.
+The package provides an interface to the Geogram C++ library, with methods to solve semi-discrete optimal transport problems in two or three dimensions.
 }
 
 \details{
 \tabular{ll}{
 Package: \tab Rgeogram\cr
 Type: \tab Package\cr
-Version: \tab 0.2.0\cr
-Date: \tab 2018-08-05\cr
+Version: \tab 0.3.0\cr
+Date: \tab 2018-09-15\cr
 License: \tab GPL (>= 2)\cr
 LazyLoad: \tab Yes\cr
 Depends: \tab Rcpp, RcppArmadillo \cr }
 }
 
 \section{How to cite this package}{
- \preformatted{@Manual{OHara2018,
- author       = {Keith O'Hara},
- title        = {{Rgeogram}: R interface to Geogram.},
+ \preformatted{@Manual{LBGOS2018,
+ author       = {Bruno Levy, Odran Bonnet, Alfred Galichon, Keith O'Hara, Matt Shum},
+ title        = {{Rgeogram}: An R interface to the Geogram library.},
  year         = {2018},
- note         = {R package version 0.2.0.}}}
+ note         = {R package version 0.3.0.}}}
 \emph{}
 }
 
