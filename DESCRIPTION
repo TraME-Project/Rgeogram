@@ -1,10 +1,10 @@
 Package: Rgeogram
 Type: Package
 Title: R interface to Geogram
-Version: 0.2.0
+Version: 0.3.0
 Date: 2018-09-15
 Author: Bruno Levy, Odran Bonnet, Alfred Galichon, Keith O'Hara [cre], Matt Shum
-Maintainer: Keith O'Hara <keith.ohara@nyu.edu>
+Maintainer: Keith O'Hara <kth.ohr@gmail.com>
 Description: An R interface to the Geogram library.
 License: GPL (>=2)
 SystemRequirements: GNU make

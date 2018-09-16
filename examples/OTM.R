@@ -19,8 +19,8 @@ otm2D(chi_kj,cbind(rep(0.25,4)))
 
 vtilde <- res$weights
 
-v = - vtilde + (chi_kj[,1]^2 + chi_kj[,2]^2)
-delta_j = v[4] - v[1:3] 
+v <- - vtilde + (chi_kj[,1]^2 + chi_kj[,2]^2)
+delta_j <- v[4] - v[1:3] 
 
 n_samp <- 1000
 

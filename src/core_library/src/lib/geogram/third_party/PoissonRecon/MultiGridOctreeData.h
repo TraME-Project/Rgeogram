@@ -582,9 +582,9 @@ public:
                 Pointer( long long ) edgeKeys ; Pointer( char ) edgeSet;
                 Pointer( FaceEdges ) faceEdges ; Pointer( char ) faceSet;
                 Pointer( char ) mcIndices;
-                hash_map< long long , std::vector< IsoEdge > > faceEdgeMap;
-                hash_map< long long , std::pair< int , Vertex > > edgeVertexMap;
-                hash_map< long long , long long > vertexPairMap;
+                std::unordered_map< long long , std::vector< IsoEdge > > faceEdgeMap;
+                std::unordered_map< long long , std::pair< int , Vertex > > edgeVertexMap;
+                std::unordered_map< long long , long long > vertexPairMap;
 
                 SliceValues( void );
                 ~SliceValues( void );
@@ -598,9 +598,9 @@ public:
                 typename SortedTreeNodes::XSliceTableData xSliceData;
                 Pointer( long long ) edgeKeys ; Pointer( char ) edgeSet;
                 Pointer( FaceEdges ) faceEdges ; Pointer( char ) faceSet;
-                hash_map< long long , std::vector< IsoEdge > > faceEdgeMap;
-                hash_map< long long , std::pair< int , Vertex > > edgeVertexMap;
-                hash_map< long long , long long > vertexPairMap;
+                std::unordered_map< long long , std::vector< IsoEdge > > faceEdgeMap;
+                std::unordered_map< long long , std::pair< int , Vertex > > edgeVertexMap;
+                std::unordered_map< long long , long long > vertexPairMap;
 
                 XSliceValues( void );
                 ~XSliceValues( void );
@@ -693,9 +693,9 @@ void Reset( void )
 }
 
 #include "MultiGridOctreeData.inl"
-#include "MultiGridOctreeData_SortedTreeNodes.inl"
-#include "MultiGridOctreeData_WeightedSamples.inl"
-#include "MultiGridOctreeData_System.inl"
-#include "MultiGridOctreeData_IsoSurface.inl"
-#include "MultiGridOctreeData_Evaluation.inl"
+#include "MGOD_SortedTreeNodes.inl"
+#include "MGOD_WeightedSamples.inl"
+#include "MGOD_System.inl"
+#include "MGOD_IsoSurface.inl"
+#include "MGOD_Evaluation.inl"
 #endif // MULTI_GRID_OCTREE_DATA_INCLUDED

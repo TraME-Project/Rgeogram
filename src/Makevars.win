@@ -244,7 +244,7 @@ GEO_OBJECTS_CPP= $(GEO_SOURCES_CPP:.cpp=.o)
 #
 #
 
-R_SOURCES= $(SDIR)/R_src/geogram_otm.cpp $(SDIR)/R_src/geogram_otm_R.cpp
+R_SOURCES= $(SDIR)/geogram_otm.cpp $(SDIR)/geogram_otm_R.cpp
 R_OBJECTS= $(R_SOURCES:.cpp=.o)
 
 #
