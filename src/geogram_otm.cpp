@@ -78,13 +78,19 @@ set_mesh_point(Mesh &M, index_t v, const double *coords, index_t dim)
 
 }
 
-// using namespace GEO;
+namespace Rgeogram
+{
+    using uint_t = unsigned int;
+
+    int OTM2D(const double* points_inp, const uint_t n_vert, const uint_t vert_dim, const double* weights_in_ptr, double* weights_out_ptr);
+    int OTM3D(const double* points_inp, const uint_t n_vert, const uint_t vert_dim, const double* weights_in_ptr, double* weights_out_ptr);
+}
 
 //
 // 2D
 
 int
-OTM2D(const double* points_inp, const int n_vert, const int vert_dim, const double* weights_in, double* weights_out_ptr)
+Rgeogram::OTM2D(const double* points_inp, const uint_t n_vert, const uint_t vert_dim, const double* weights_in, double* weights_out_ptr)
 {
     
     // Initialize the Geogram library.
@@ -187,7 +193,7 @@ OTM2D(const double* points_inp, const int n_vert, const int vert_dim, const doub
     // weights.set_size(OTM.nb_points());
 
     double weight0 = OTM.weight(0);
-    for (int jj=0; jj < OTM.nb_points(); jj++)
+    for (uint_t jj=0; jj < OTM.nb_points(); jj++)
     {
         weights_out_ptr[jj] = OTM.weight(jj) - weight0;
     }
@@ -199,7 +205,7 @@ OTM2D(const double* points_inp, const int n_vert, const int vert_dim, const doub
 // 3D
 
 int
-OTM3D(const double* points_inp, const int n_vert, const int vert_dim, const double* weights_in, double* weights_out_ptr)
+Rgeogram::OTM3D(const double* points_inp, const uint_t n_vert, const uint_t vert_dim, const double* weights_in, double* weights_out_ptr)
 {
     
     // Initialize the Geogram library.
@@ -346,7 +352,7 @@ OTM3D(const double* points_inp, const int n_vert, const int vert_dim, const doub
     // weights.set_size(OTM.nb_points());
 
     double weight0 = OTM.weight(0);
-    for (int jj=0; jj < OTM.nb_points(); jj++)
+    for (uint_t jj=0; jj < OTM.nb_points(); jj++)
     {
         weights_out_ptr[jj] = OTM.weight(jj) - weight0;
     }

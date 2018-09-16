@@ -25,8 +25,8 @@ using namespace Rcpp;
 SEXP OTM2D_R(SEXP chi_mat_R, SEXP weights_in_R)
 {
     try {
-        int nrow = Rf_nrows(chi_mat_R);
-        int ncol = Rf_ncols(chi_mat_R);
+        Rgeogram::uint_t nrow = Rf_nrows(chi_mat_R);
+        Rgeogram::uint_t ncol = Rf_ncols(chi_mat_R);
 
         if (ncol > nrow)
         {
@@ -36,17 +36,18 @@ SEXP OTM2D_R(SEXP chi_mat_R, SEXP weights_in_R)
 
         //
 
-        arma::vec weights_out = arma::zeros(nrow,1);
+        // arma::vec weights_out = arma::zeros(nrow,1);
+        std::vector<double> weights_out(nrow,0);
 
         Rgeogram::clocktime_t start_time = Rgeogram::tic();
-        OTM2D(REAL(chi_mat_R), nrow, ncol, REAL(weights_in_R), weights_out.memptr());
+        Rgeogram::OTM2D(REAL(chi_mat_R), nrow, ncol, REAL(weights_in_R), weights_out.data());
         Rgeogram::comptime_t algo_runtime = Rgeogram::tic() - start_time;
 
         double runtime_out = algo_runtime.count();
 
         //
 
-        return Rcpp::List::create(Rcpp::Named("weights") = weights_out,
+        return Rcpp::List::create(Rcpp::Named("weights") = wrap(weights_out),
                                   Rcpp::Named("elapsed_time") = runtime_out);
     } catch( std::exception &ex ) {
         forward_exception_to_r( ex );
@@ -59,8 +60,8 @@ SEXP OTM2D_R(SEXP chi_mat_R, SEXP weights_in_R)
 SEXP OTM3D_R(SEXP chi_mat_R, SEXP weights_in_R)
 {
     try {
-        int nrow = Rf_nrows(chi_mat_R);
-        int ncol = Rf_ncols(chi_mat_R);
+        Rgeogram::uint_t nrow = Rf_nrows(chi_mat_R);
+        Rgeogram::uint_t ncol = Rf_ncols(chi_mat_R);
 
         if (ncol > nrow)
         {
@@ -70,17 +71,18 @@ SEXP OTM3D_R(SEXP chi_mat_R, SEXP weights_in_R)
 
         //
 
-        arma::vec weights_out = arma::zeros(nrow,1);
+        // arma::vec weights_out = arma::zeros(nrow,1);
+        std::vector<double> weights_out(nrow,0);
 
         Rgeogram::clocktime_t start_time = Rgeogram::tic();
-        OTM3D(REAL(chi_mat_R), nrow, ncol, REAL(weights_in_R), weights_out.memptr());
+        Rgeogram::OTM3D(REAL(chi_mat_R), nrow, ncol, REAL(weights_in_R), weights_out.data());
         Rgeogram::comptime_t algo_runtime = Rgeogram::tic() - start_time;
 
         double runtime_out = algo_runtime.count();
 
         //
 
-        return Rcpp::List::create(Rcpp::Named("weights") = weights_out,
+        return Rcpp::List::create(Rcpp::Named("weights") = wrap(weights_out),
                                   Rcpp::Named("elapsed_time") = runtime_out);
     } catch( std::exception &ex ) {
         forward_exception_to_r( ex );

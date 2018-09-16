@@ -9,4 +9,4 @@ Description: The package provides an interface to the Geogram C++ library, with 
 License: GPL (>=2)
 SystemRequirements: GNU make
 Depends: R (>= 3.5.0), Rcpp (>= 0.12.2)
-LinkingTo: Rcpp, RcppArmadillo (>= 0.6.400.2)
+LinkingTo: Rcpp

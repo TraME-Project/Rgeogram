@@ -22,7 +22,7 @@
 #ifndef _RGEOGRAM_HPP
 #define _RGEOGRAM_HPP
 
-#include <RcppArmadillo.h>
+#include <Rcpp.h>
 #include <chrono>
 
 namespace Rgeogram
@@ -30,10 +30,10 @@ namespace Rgeogram
     using uint_t = unsigned int;
 
     #include "tictoc.hpp"
-}
 
-int OTM2D(const double* points_inp, const int n_vert, const int vert_dim, const double* weights_in_ptr, double* weights_out_ptr);
-int OTM3D(const double* points_inp, const int n_vert, const int vert_dim, const double* weights_in_ptr, double* weights_out_ptr);
+    int OTM2D(const double* points_inp, const uint_t n_vert, const uint_t vert_dim, const double* weights_in_ptr, double* weights_out_ptr);
+    int OTM3D(const double* points_inp, const uint_t n_vert, const uint_t vert_dim, const double* weights_in_ptr, double* weights_out_ptr);
+}
 
 RcppExport SEXP OTM2D_R(SEXP chi_mat_R, SEXP weights_in_R);
 RcppExport SEXP OTM3D_R(SEXP chi_mat_R, SEXP weights_in_R);
