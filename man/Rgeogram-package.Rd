@@ -25,7 +25,7 @@ Depends: \tab Rcpp, RcppArmadillo \cr }
 \section{How to cite this package}{
  \preformatted{@Manual{LBGOS2018,
  author       = {Bruno Levy, Odran Bonnet, Alfred Galichon, Keith O'Hara, Matt Shum},
- title        = {{Rgeogram}: An R interface to the Geogram library.},
+ title        = {{Rgeogram}: An R interface to the Geogram library},
  year         = {2018},
  note         = {R package version 0.3.0.}}}
 \emph{}
