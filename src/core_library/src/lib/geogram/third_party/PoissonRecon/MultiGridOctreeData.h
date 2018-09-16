@@ -693,9 +693,9 @@ void Reset( void )
 }
 
 #include "MultiGridOctreeData.inl"
-#include "MultiGridOctreeData.SortedTreeNodes.inl"
-#include "MultiGridOctreeData.WeightedSamples.inl"
-#include "MultiGridOctreeData.System.inl"
-#include "MultiGridOctreeData.IsoSurface.inl"
-#include "MultiGridOctreeData.Evaluation.inl"
+#include "MultiGridOctreeData_SortedTreeNodes.inl"
+#include "MultiGridOctreeData_WeightedSamples.inl"
+#include "MultiGridOctreeData_System.inl"
+#include "MultiGridOctreeData_IsoSurface.inl"
+#include "MultiGridOctreeData_Evaluation.inl"
 #endif // MULTI_GRID_OCTREE_DATA_INCLUDED
