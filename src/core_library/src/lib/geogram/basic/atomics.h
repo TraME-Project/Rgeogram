@@ -333,6 +333,8 @@ inline char atomic_bittestandreset_x86(volatile unsigned int* ptr, unsigned int 
 
 #include <windows.h>
 #include <intrin.h>
+
+#ifdef _MSC_VER // Keith: only defined for MSC
 #pragma intrinsic(_InterlockedCompareExchange8)
 #pragma intrinsic(_InterlockedCompareExchange16)
 #pragma intrinsic(_InterlockedCompareExchange)
@@ -341,6 +343,7 @@ inline char atomic_bittestandreset_x86(volatile unsigned int* ptr, unsigned int 
 #pragma intrinsic(_ReadBarrier)
 #pragma intrinsic(_WriteBarrier)
 #pragma intrinsic(_ReadWriteBarrier)
+#endif // _MSC_VER
 
 #endif // GEO_OS_WINDOWS
 
